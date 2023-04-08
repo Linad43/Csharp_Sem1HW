@@ -44,3 +44,21 @@ Console.Write("Ведите число: ");
 int c1 = Convert.ToInt32(Console.ReadLine());
 if (c1%2==0) Console.WriteLine("Число " + c1 + " чётное");
 else Console.WriteLine("Число " + c1 + " не чётное");
+
+/*
+Задача 8: Напишите программу, которая на вход принимает число (N),
+а на выходе показывает все чётные числа от 1 до N.
+*/
+
+Console.WriteLine(" ");
+Console.WriteLine("Програма вывода чётных чисел до N");
+Console.Write("Ведите число N: ");
+int d1 = Convert.ToInt32(Console.ReadLine());
+
+int i=2;
+while (i<=d1) 
+{
+    if (i%10==0) Console.WriteLine(i);
+    else Console.Write(i + ", ");
+    i+=2;
+}
