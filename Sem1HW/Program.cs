@@ -38,3 +38,9 @@ Console.Write("Большее число: " + max);
 является ли число чётным (делится ли оно на два без остатка).
 */
 
+Console.WriteLine(" ");
+Console.WriteLine("Програма определения чётности");
+Console.Write("Ведите число: ");
+int c1 = Convert.ToInt32(Console.ReadLine());
+if (c1%2==0) Console.WriteLine("Число " + c1 + " чётное");
+else Console.WriteLine("Число " + c1 + " не чётное");
