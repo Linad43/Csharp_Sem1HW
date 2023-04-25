@@ -1,79 +1,48 @@
 ﻿/*
-Задача 34: Задайте массив
-заполненный случайными положительными трёхзначными
-числами. Напишите программу,
-которая покажет количество чётных чисел в массиве.
+Пользователь вводит с клавиатуры M чисел.
+Посчитайте, сколько чисел больше 0
+ввёл пользователь.
 */
 
-int length=new Random().Next(10,100);
+Console.WriteLine("Массив из скольки чисел хотите вводить:");
+int length=Convert.ToInt32(Console.ReadLine());
 
-int[] NewArr = new int[length];
-int chet=0;
-Console.WriteLine("Введенный массив:");
-
-for(int i=0;i<NewArr.Length;i++)
+int[] Arr = new int[length];
+Console.WriteLine("Введите массив:");
+int poloj=0;
+for(int i=0;i<Arr.Length;i++)
 {
-    NewArr[i] = new Random().Next(100,1000);
-    Console.Write($"{NewArr[i]} ");
-    if(NewArr[i]%2==0)
+    Console.Write($"A[{i+1}]=");
+    Arr[i] = Convert.ToInt32(Console.ReadLine());
+    if(Arr[i]>0)
     {
-        chet++;
+        poloj++;
     }
 }
 
-Console.WriteLine("\nКол-во четных "+chet);
-/*
-Задача 36: Задайте одномерный массив,
-заполненный случайными числами.
-Найдите сумму элементов,
-стоящих на нечётных позициях.
-*/
-
-
-int length1=new Random().Next(10,100);
-
-int[] NewArr1 = new int[length1];
-int Sum=0;
-Console.WriteLine("Введенный массив:");
-
-for(int i=0;i<NewArr1.Length;i++)
-{
-    NewArr1[i] = new Random().Next(100,1000);
-    Console.Write($"{NewArr1[i]} ");
-    if(i%2==0)
-    {
-        Sum+=NewArr1[i];
-    }
-}
-Console.WriteLine("\nСумма нечетных позиций:"+Sum);
+Console.WriteLine("\nКол-во положительных "+poloj);
 
 /*
-Задача 38: Задайте массив вещественных чисел.
-Найдите разницу между максимальным и минимальным элементов массива.
+Задача 43: Напишите программу,
+которая найдёт точку пересечения двух прямых,
+заданных уравнениями
+y = k1 * x + b1,
+y = k2 * x + b2;
+значения b1, k1, b2 и k2 задаются пользователем.
 */
-
-int length2=new Random().Next(10,100);
-
-float[] NewArr2 = new float[length1];
-Console.WriteLine("Введенный массив:");
-
-for(int i=0;i<NewArr2.Length;i++)
-{
-    NewArr2[i] = new Random().Next(0,10000);
-    NewArr2[i]/=100;
-    Console.Write($"{NewArr2[i]} ");
-}
-float min=NewArr2[0], max=NewArr2[0];
-for(int i=1;i<NewArr2.Length;i++)
-{
-    if (NewArr2[i]>max)
-    {
-        max=NewArr2[i];
-    }
-    if (NewArr2[i]<min)
-    {
-        min=NewArr2[i];
-    }
-}
-Console.WriteLine("\nMax:"+max+" Min:"+min);
-Console.WriteLine("Наибольшая разница:"+(max-min));
+Console.WriteLine("Нахождение точек пересечение прямых");
+Console.WriteLine("Первая прямая\n y = k1 * x + b1");
+Console.WriteLine("Введите данные");
+Console.Write("k1=");
+float k_1=float.Parse(Console.ReadLine());
+Console.Write("b1=");
+float b_1=float.Parse(Console.ReadLine());
+Console.WriteLine("Вторая прямая\n y = k2 * x + b2");
+Console.WriteLine("Введите данные");
+Console.Write("k2=");
+float k_2=float.Parse(Console.ReadLine());
+Console.Write("b2=");
+float b_2=float.Parse(Console.ReadLine());
+float x=(b_2-b_1)/(k_1-k_2);
+float y=k_1*x+b_1;
+Console.WriteLine($"Точка пересечения O[{x}{y}]");
