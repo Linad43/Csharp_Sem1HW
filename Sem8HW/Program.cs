@@ -4,7 +4,7 @@
 которая упорядочит по убыванию элементы каждой строки
 двумерного массива.
 */
-
+/*
 Console.WriteLine("Введите размер двумерного массива m x n:");
 Console.Write("m=");
 int M = Convert.ToInt32(Console.ReadLine());
@@ -51,7 +51,7 @@ for(int i=0;i<M;i++)
     }
     Console.Write("\n");
 }
-
+*/
 /*
 Задача 56: Задайте прямоугольный двумерный массив.
 Напишите программу,
@@ -59,7 +59,7 @@ for(int i=0;i<M;i++)
 с наименьшей суммой элементов.
 */
 //Сразу найдем наименьшую сумму элементов построчно
-
+/*
 double[] sum = new double[M];
 double min_sum=0;
 int min_num_sum=0;
@@ -82,12 +82,13 @@ for(int i=0;i<M;i++)
 }
 Console.Write($"Строка с наименьшой суммой: {min_num_sum+1}\n");
 Console.Write($"Наименьшая сумма: {min_sum}\n");
+*/
 /*
 Задача 58: Задайте две матрицы.
 Напишите программу,
 которая будет находить произведение двух матриц.
 */
-
+/*
 Console.WriteLine("Перемножение матриц A[m_1,n_1] и B[m_2,n_2]");
 Console.WriteLine("Так как при перемножении матриц должно выполняться n_1=m_2");
 Console.WriteLine("Выполним замену на k");
@@ -137,6 +138,7 @@ for(int i=0;i<M;i++)
     }
     Console.Write("\n");
 }
+*/
 /*
 Задача 60. ...Сформируйте трёхмерный массив
 из неповторяющихся двузначных чисел.
@@ -144,7 +146,7 @@ for(int i=0;i<M;i++)
 которая будет построчно выводить массив,
 добавляя индексы каждого элемента.
 */
-
+/*
 Console.WriteLine("Введите размер трехмерного массива A[m,n,k]:");
 Console.Write("m=");
 M = Convert.ToInt32(Console.ReadLine());
@@ -166,19 +168,117 @@ for(int i=0;i<M;i++)
     }
     Console.Write("\n");
 }
-
+*/
 /*
 Задача 62. Напишите программу,
 которая заполнит спирально массив 4 на 4.
-Например, на выходе получается вот такой массив:
-01 02 03 04
-12 13 14 05
-11 16 15 06
-10 09 08 07
-*/
-double[,] mass4=new double[M,N];
 
-for(int i=0;i<M*N;i++)
+00 (00) 01 (01) 02 (02) 03 (03)
+11 (10) 12 (11) 13 (12) 04 (13)
+10 (20) 15 (21) 14 (22) 05 (23)
+09 (30) 08 (31) 07 (32) 06 (33)
+*/
+int M=4, N=4;
+double[,] mass4=new double[M,N];
+int k=0, i=0, j=0;
+int vec=0;//0 - право, 1 - вниз, 2 - лево, 3 - верх
+/*for(int i=0;i<M;i++)
 {
-    
+    while(j<N)
+    {
+        if(vec==0)
+        {
+            mass4[i,j]=k;
+        }
+        else if(vec==1)
+        {
+
+        }
+        else if(vec==2)
+        {
+
+        }
+        else if(vec==3)
+        {
+
+        }
+        k++;
+        j++;
+        if(j==N)
+        {
+            vec++;
+            if(vec==4)
+            {
+                vec=0;
+            }
+        }
+    }
+}
+*/
+int len=0;
+bool flag=true;
+while(flag)
+{
+    if(vec==0)
+    {
+        while(j<N-len)
+        {
+            mass4[i,j]=k;
+            j++;
+            k++;
+        }
+        j--;
+        i++;
+    }
+    else if(vec==1)
+    {
+        while(i<M-len)
+        {
+            mass4[i,j]=k;
+            i++;
+            k++;
+        }
+        i--;
+        j--;
+    }
+    else if(vec==2)
+    {
+        while(j>=0+len)
+        {
+            mass4[i,j]=k;
+            j--;
+            k++;
+        }
+        j++;
+        i--;
+    }
+    else if(vec==3)
+    {
+        len++;
+        while(i>=0+len)
+        {
+            mass4[i,j]=k;
+            i--;
+            k++;
+        }
+        i++;
+        j++;
+    }
+    vec++;
+    if(vec==4)
+    {
+        vec=0;
+    }
+    if(mass4[i,j]!=0)
+    {
+        flag=false;
+    }
+}
+for(i=0;i<M;i++)
+{
+    for(j=0;j<N;j++)
+    {
+        Console.Write($"{mass4[i,j]} ");
+    }
+    Console.Write("\n");
 }
