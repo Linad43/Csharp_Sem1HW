@@ -30,6 +30,7 @@ y = k1 * x + b1,
 y = k2 * x + b2;
 значения b1, k1, b2 и k2 задаются пользователем.
 */
+/*
 Console.WriteLine("Нахождение точек пересечение прямых");
 Console.WriteLine("Первая прямая\n y = k1 * x + b1");
 Console.WriteLine("Введите данные");
@@ -46,3 +47,4 @@ float b_2=float.Parse(Console.ReadLine());
 float x=(b_2-b_1)/(k_1-k_2);
 float y=k_1*x+b_1;
 Console.WriteLine($"Точка пересечения O[{x}{y}]");
+*/
